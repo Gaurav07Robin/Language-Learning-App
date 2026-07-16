@@ -9,7 +9,7 @@ import AnimatedProgress from '../components/AnimatedProgress';
 import { Ionicons } from '@expo/vector-icons';
 
 const DashboardScreen = () => {
-  const { logout } = useAuthStore();
+  const { logout, level, language } = useAuthStore();
   const { colors, mode, setMode } = useTheme();
   const navigation = useNavigation<any>();
 
@@ -51,7 +51,7 @@ const DashboardScreen = () => {
           <BentoCard 
             size="large"
             title="Continue Learning"
-            subtitle="Unit 1: Basics"
+            subtitle={`${level || 'Beginner'} ${language || 'Language'} Lesson`}
             iconName="play-circle"
             onPress={() => navigation.navigate('Unit')}
           />
