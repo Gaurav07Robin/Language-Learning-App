@@ -5,9 +5,9 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeProvider } from './src/theme/ThemeContext';
 import useAuthStore from './src/store/useAuthStore';
 
-// Screens
 import OnboardingScreen from './src/screens/OnboardingScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
+import DiagnosticScreen from './src/screens/DiagnosticScreen';
 import UnitScreen from './src/screens/UnitScreen';
 import { ActivityIndicator, View } from 'react-native';
 
@@ -35,7 +35,10 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator screenOptions={{ headerShown: false, animation: 'fade' }}>
             {!isAuthenticated ? (
-              <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+              <>
+                <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+                <Stack.Screen name="Diagnostic" component={DiagnosticScreen} />
+              </>
             ) : (
               <>
                 <Stack.Screen name="Dashboard" component={DashboardScreen} />

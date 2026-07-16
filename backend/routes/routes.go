@@ -10,6 +10,7 @@ func SetupRoutes(app *fiber.App) {
 
 	// Auth & Onboarding
 	api.Post("/onboarding", controllers.HandleOnboarding)
+	api.Get("/diagnostic", controllers.GetDiagnosticQuiz)
 
 	// Curriculum & Units
 	api.Get("/curriculum/:lang/:level", controllers.GetCurriculum)

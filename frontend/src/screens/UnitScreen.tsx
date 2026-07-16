@@ -18,7 +18,7 @@ interface UnitData {
 const UnitScreen = () => {
   const { colors, mode } = useTheme();
   const navigation = useNavigation();
-  const { level } = useAuthStore();
+  const { language, level } = useAuthStore();
   
   const [unitData, setUnitData] = useState<UnitData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -27,9 +27,8 @@ const UnitScreen = () => {
   useEffect(() => {
     const fetchUnit = async () => {
       try {
-        const language = mode === 'language' ? 'Spanish' : 'Golang';
         const response = await apiClient.get('/unit/next', {
-          params: { language, level, topic: 'Basics' }
+          params: { language: language || 'Spanish', level: level || 'Beginner', topic: 'Basics' }
         });
         setUnitData(response.data.unit);
       } catch (error) {
