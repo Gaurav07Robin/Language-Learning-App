@@ -30,7 +30,7 @@ const DashboardScreen = () => {
             Welcome back,
           </Text>
           <Text style={[styles.title, { color: colors.primary, fontFamily: isBrutal ? 'monospace' : undefined }]}>
-            Explorer
+            {language ? `${language} ${level}` : 'Explorer'}
           </Text>
         </View>
         <TouchableOpacity onPress={toggleTheme} style={styles.themeToggle}>
